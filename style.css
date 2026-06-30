@@ -1,0 +1,239 @@
+/* =========================
+   GLOBAL RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #050505;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+/* =========================
+   PAGE SYSTEM
+========================= */
+
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 20px;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s ease;
+}
+
+.page.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+
+h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    color: #f7d2b0;
+    text-shadow: 0 0 20px rgba(255, 180, 120, 0.4);
+}
+
+h2 {
+    font-size: 26px;
+    margin-top: 10px;
+    font-weight: 400;
+}
+
+h3 {
+    letter-spacing: 3px;
+    color: #ffb37a;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-top: 20px;
+    max-width: 700px;
+    line-height: 1.7;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* =========================
+   GLASS CARD
+========================= */
+
+.glass {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 420px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+button {
+    margin-top: 25px;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 30px;
+
+    background: #d89b6a;
+    color: white;
+    font-size: 16px;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: #efb487;
+}
+
+/* =========================
+   PHOTOS
+========================= */
+
+.photo {
+    width: 90%;
+    max-width: 320px;
+    border-radius: 18px;
+    margin-top: 20px;
+
+    box-shadow: 0 10px 40px rgba(255, 180, 120, 0.2);
+}
+
+/* =========================
+   CONTROLS
+========================= */
+
+#controls {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+#controls button {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+/* =========================
+   STARS BACKGROUND
+========================= */
+
+#stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(#ffd6b0 1px, transparent 1px);
+    background-size: 90px 90px, 160px 160px;
+    opacity: 0.15;
+    animation: moveStars 120s linear infinite;
+    z-index: -2;
+}
+
+@keyframes moveStars {
+    from { transform: translateY(0); }
+    to { transform: translateY(-800px); }
+}
+
+/* =========================
+   HEARTS (FIXED)
+========================= */
+
+#hearts {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.heart {
+    position: absolute;
+    bottom: -50px;
+    font-size: 20px;
+    opacity: 0.7;
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(-110vh) scale(1.3);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   LOADER
+========================= */
+
+.loader {
+    margin-top: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 4px solid rgba(255,255,255,0.2);
+    border-top: 4px solid #f7c08a;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+/* =========================
+   LETTER
+========================= */
+
+.letter {
+    max-height: 80vh;
+    overflow-y: auto;
+    text-align: left;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+    h1 { font-size: 34px; }
+    h2 { font-size: 20px; }
+    p { font-size: 15px; }
+
+    .photo {
+        max-width: 280px;
+    }
+}
